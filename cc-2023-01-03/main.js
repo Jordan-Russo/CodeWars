@@ -7,6 +7,7 @@
 // it should output
 
 // [ [ "bar_", "bar@bar.com" ] ]
+// You have to use the filter-method which returns each element of the array for which the filter-method returns true.
 function searchNames( logins ){
   return logins.filter(term => term[0].endsWith("_"));
 }
