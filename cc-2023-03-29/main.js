@@ -1,3 +1,4 @@
+// url: https://www.codewars.com/kata/56e9e4f516bcaa8d4f001763
 // Description:
 
 // We want to generate a function that computes the series starting from 0 and ending until the given number.
