@@ -1,55 +1,33 @@
-// url: https://www.codewars.com/kata/515decfd9dcfc23bb6000006
-// IP Validation
+// url: https://www.codewars.com/kata/6469e4c905eaefffd44b6504
+// Reverse a number in any base
 
-// Given a string
-// Correctly identify and return a boolean indicating whether or not the given string would be considered a valid IPV4 address
-// IPV4 address much include 4 numbers from 0 to 255, seperated by '.'
-// These numbers cann't have leading zeros.
-// Examples of true:
-//   1.2.3.4
-//   123.45.67.89
-// Examples of false:
-//   1.2.3
-//   1.2.3.4.5
-//   123.456.78.90
-//   123.045.067.089
+// Given a non-negative integer, a random base, both as BigInts, 
+// return the number converted into that base, reversed, and then parsed in decimal(base-10) bigInt
 
-// isValidIP function
-// initialize count to 0
-// initialize currentIP = ''
-// loop through the string
-  // if character is a '.'
-    // check the number in the currentIP is valid
-    // if so clear it off and increment count
-    // 
-  // else if character is a digit
-    // add it to currentIP
-  // else return false
-  // maybe use a switch case for this for once.
-// check the final number in the currentIP and increase count
-// check count length is 4
-// Return true if all the checks passed.
+// Example:
+//  reverseNumber(12n, 2n) -> 12 in base 2: '1100' -> reversed: '0011' -> parsed: 3n
+//  reverseNumber(10n, 5n) -> 10 in base 5: '20' -> reversed: '02' -> parsed: 2n
+//  reverseNumber(5n, 1n) -> 5 in base 1: '11111' -> reversed: '11111' -> parsed: 5n
 
-function isValidIP(str) {
-  let count = 0
-  let currIP = ''
-  for (let i = 0; i <= str.length; i++){
-    const char = str[i]
-    if(char === '.' || i === str.length){
-      if(currIP[0] === '0' && currIP !== '0'){return false}
-      // leading zero
-      if(currIP > 255){return false}
-      // out of range
-      if(!currIP && currIP !== 0){return false}
-      currIP = ''
-      count++
+// Function /w params, n for number(bigInt), b for base(bigInt)
+  // assign numString to convert the bigInt Number into a string in base b(must convert from bigInt to num)
+  // reverse numString
+  // parse the integer in that string in base b(once again convert to number from BigInt)
+  // turn the reversed and parsed number into a bigInt and return it
+
+  function reverseNumber(n, b){
+    if(b === 1n){return n}
+    if(b > 36n){
+      let result = 0n
+      while(n > 0n){
+        let remainder = n % b;
+        result = result * b + remainder;
+        n = n / b;
+      }
+      return result;
     }
-    else if(char >= '0' && char <= '9'){
-      currIP += char
-    }
-    else{
-      return false
-    }
+    let numStr = n.toString(Number(b))
+    numStr = [...numStr].reverse().join('')
+    const reversedNum = BigInt(parseInt(numStr, Number(b)))
+    return reversedNum
   }
-  return count === 4
-}
