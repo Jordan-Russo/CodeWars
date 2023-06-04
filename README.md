@@ -3,7 +3,7 @@
   <img src="images/code-wars-banner.png">
 </a>
 A repository filled with Daily Coding Challenges (katas) to hone and refine critical thinking and problem-solving skills. 
-Currently Ranked <strong>top 1%</strong> on the global leaderboard, Completed <strong>400+</strong> challenges and Push <strong>7+</strong> solutions every week.
+Currently Ranked <strong>top 1%</strong> on the global leaderboard, Completed <strong>500+</strong> challenges and Push <strong>7+</strong> solutions every week.
 
 ## How It's Made:
 
